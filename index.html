@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="author" content="iamshowkath@gmail.com">
   <meta name="teacher" content="Moulana Saddam Hussain">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Qur'an Learning Portal – Bilal Masjid, Battarahalli</title>
   <style>
     body {
@@ -13,26 +14,40 @@
       background: #f6f1e7;
       color: #222;
     }
+
     header {
       background-color: #174734;
       color: #fff;
       padding: 30px 20px;
       text-align: center;
     }
+
     header h1 {
       margin: 0;
-      font-size: 2.2em;
+      font-size: 2em;
     }
-    section {
-      padding: 30px 20px;
-      max-width: 900px;
-      margin: auto;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
     }
+
+    .section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
     h2 {
       color: #174734;
       border-bottom: 2px solid #ccc;
       padding-bottom: 8px;
+      font-size: 1.3em;
     }
+
     blockquote {
       background: #fff6d1;
       border-left: 6px solid #facc15;
@@ -40,91 +55,111 @@
       padding: 15px 20px;
       font-style: italic;
     }
+
     .contact {
       background: #e9f7f0;
-      padding: 20px;
-      margin-top: 30px;
+      padding: 15px;
       border: 1px solid #cde7db;
       border-radius: 6px;
+      margin-top: 10px;
     }
-    .contact p {
-      margin: 6px 0;
-    }
-    .resources {
-      margin-top: 30px;
-    }
+
     .resources ul {
       list-style-type: none;
       padding-left: 0;
     }
+
     .resources li {
-      background: #fff;
+      background: #f9f9f9;
       margin-bottom: 10px;
       padding: 10px;
       border-left: 4px solid #174734;
     }
+
     img.teacher-photo {
-      width: 160px;
+      width: 120px;
       border-radius: 50%;
       margin-top: 10px;
       border: 3px solid #174734;
     }
+
     a {
       color: #006a4e;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
+    }
+
+    /* Desktop: side by side */
+    @media (min-width: 900px) {
+      .container {
+        flex-direction: row;
+      }
+
+      .section {
+        flex: 1;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Qur'an Learning Portal</h1>
     <p>Lessons by Moulana Saddam Hussain – Bilal Masjid, Battarahalli</p>
   </header>
 
-  <section>
-    <h2>📖 Motivation</h2>
-    <p>Learning is essential for all human beings. It plays a vital role in our lives. Everyone, without exception, needs to learn — even a teacher or trainer remains a learner in some way or another.</p>
-    <p>Right now, I am addressing you through these lines, and it is very important to understand how to build a strong foundation for our academic and spiritual future. We must stay warm, excited, and motivated every single day.</p>
+  <div class="container">
 
-    <h2>📘 The Importance of Learning</h2>
-    <blockquote>
-      "فَإِنْ ذَكَرَنِي فِي نَفْسِهِ، ذَكَرْتُهُ فِي نَفْسِي، وَإِنْ ذَكَرَنِي فِي مَلَإٍ، ذَكَرْتُهُ فِي مَلَإٍ خَيْرٍ مِنْهُمْ"
-      <br>
-      <em>"If he remembers Me in himself, I remember him in Myself. And if he remembers Me in a gathering, I remember him in a gathering better than theirs."</em><br>
-      — [Sahih al-Bukhari & Sahih Muslim]
-    </blockquote>
-
-    <h2>🏅 The Best Among You</h2>
-    <blockquote>
-      "خيركم من تعلم القرآن وعلمه"<br>
-      <em>“The best among you are those who learn the Qur'an and teach it.”</em><br>
-      — [Sahih Al-Bukhari 5027]
-    </blockquote>
-
-    <h2>🎁 Countless Rewards</h2>
-    <blockquote>
-      "من قرأ حرفًا من كتاب لله فله به حسنة، والحسنة بعشر أمثالها"<br>
-      <em>“Whoever recites a letter from the Book of Allah will be credited with a good deed, and a good deed gets a tenfold reward.”</em><br>
-      — [Sunan At-Tirmidhi 2910]
-    </blockquote>
-
-    <h2>👤 About the Teacher</h2>
-    <img src="images/teacher.jpg" alt="Moulana Saddam Hussain" class="teacher-photo">
-    <div class="contact">
-      <p><strong>Name:</strong> Moulana Saddam Hussain</p>
-      <p><strong>Contact:</strong> +91 99000 00000</p>
-      <p><strong>Location:</strong> Bilal Masjid, Subhash Nagar, Battarahalli, Bangalore</p>
+    <!-- Section 1: About Moulana -->
+    <div class="section">
+      <h2>👤 About Moulana</h2>
+      <img src="images/teacher.jpg" alt="Moulana Saddam Hussain" class="teacher-photo">
+      <div class="contact">
+        <p><strong>Name:</strong> Moulana Saddam Hussain</p>
+        <p><strong>Contact:</strong> +91 99000 00000</p>
+        <p><strong>Location:</strong> Bilal Masjid, Subhash Nagar, Battarahalli</p>
+        <p><a href="https://docs.google.com/spreadsheets/d/1pyxoWeSw3o49IIFr4g5GQFdOxdgruv7b/edit?usp=sharing" target="_blank">📊 Attachments</a></p>
+      </div>
     </div>
 
-    <div class="resources">
+    <!-- Section 2: Motivation & Rewards -->
+    <div class="section">
+      <h2>📖 Motivation</h2>
+      <p>Learning is essential for all human beings. It plays a vital role in our lives. Everyone, without exception, needs to learn — even a teacher or trainer remains a learner in some way or another.</p>
+      <p>Right now, I am addressing you through these lines, and it is very important to understand how to build a strong foundation for our academic and spiritual future. We must stay warm, excited, and motivated every single day.</p>
+
+      <h2>📘 The Importance of Learning</h2>
+      <blockquote>
+        "فَإِنْ ذَكَرَنِي فِي نَفْسِهِ، ذَكَرْتُهُ فِي نَفْسِي..."<br>
+        <em>"If he remembers Me in himself, I remember him in Myself..."</em><br>
+        — [Sahih al-Bukhari & Muslim]
+      </blockquote>
+
+      <h2>🏅 Best Among You</h2>
+      <blockquote>
+        "خيركم من تعلم القرآن وعلمه"<br>
+        <em>“The best among you are those who learn the Qur'an and teach it.”</em><br>
+        — [Sahih Al-Bukhari 5027]
+      </blockquote>
+
+      <h2>🎁 Rewards</h2>
+      <blockquote>
+        "من قرأ حرفًا من كتاب لله..."<br>
+        <em>“Whoever recites a letter from the Book of Allah gets a reward...”</em><br>
+        — [Sunan At-Tirmidhi 2910]
+      </blockquote>
+    </div>
+
+    <!-- Section 3: Class Resources -->
+    <div class="section resources">
       <h2>📂 Class Resources</h2>
       <ul>
-        <li><a href="https://docs.google.com/spreadsheets/d/1pyxoWeSw3o49IIFr4g5GQFdOxdgruv7b/edit?usp=sharing">📊 Attendance Tracker</a></li>
-         <li>📘 <a href="class_notes_page.html">Class Notes</a></li>
-        <li>📘 <a href="Tajweed_Rules.html">Tajweed Rules Summary</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/1pyxoWeSw3o49IIFr4g5GQFdOxdgruv7b/edit?usp=sharing" target="_blank">📊 Attendance Tracker</a></li>
+        <li>📘 <a href="class_notes_page.html">Class Notes</a></li>
+        <li>📘 <a href="tajweed-rules-noorani-qaida.html">Tajweed Rules Summary (Urdu & Examples)</a></li>
         <li>📅 Lesson Tracker – Date / Topic / Notes</li>
         <li>🎓 Student Progress – Tajweed milestones</li>
         <li>📝 Assessment Log</li>
@@ -134,6 +169,7 @@
         <li>🗓️ Calendar for Events</li>
       </ul>
     </div>
-  </section>
+
+  </div>
 </body>
 </html>
