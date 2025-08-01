@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="UTF-8">
+    <meta name="author" content="iamshowkath@gmail.com">
+    <meta name="teacher" content="Moulana Saddam Hussain">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🕌 Mock Test1 - July</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f9;
+      padding: 20px;
+      color: #222;
+    }
+    h1 {
+      color: #174734;
+    }
+    .question {
+      background: #ffffff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-left: 5px solid #174734;
+      border-radius: 6px;
+    }
+    .answers label {
+      display: block;
+      margin: 5px 0;
+    }
+    button.reveal {
+      margin-top: 10px;
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      color: #856404;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .explanation {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background: #e2f0d9;
+      border-left: 4px solid #28a745;
+    }
+    #submitBtn {
+      background: #174734;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #result {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      border-left: 4px solid #17a2b8;
+    }
+  </style>
+</head>
+<body>
+  <title>🕌 Mock Test1 - July</title>
+  <h1>🕌 Mock Test1 - July</h1>
+  <p>Please enter your name before beginning the quiz:</p>
+  <input type="text" id="studentName" placeholder="Your Full Name" style="padding:8px;width:60%;margin-bottom:20px;">
+
+  <div id="questions"></div>
+
+  <button id="submitBtn">📝 Submit Quiz</button>
+  <div id="result"></div>
+
+  <script>
+    const questions = [
+      {
+        q: "What is the rule when Noon Saakinah is followed by the letter 'Ba'?",
+        type: "radio",
+        options: ["Ikhfaa", "Iqlab", "Idghaam"],
+        correct: ["Iqlab"],
+        explanation: "Iqlab is applied when Noon Saakinah is followed by 'Ba'. Eg: 'من بعد'."
+      },
+      {
+        q: "Which of the following are examples of Ikhfaa?",
+        type: "checkbox",
+        options: ["من شر", "من ربهم", "من فوقهم"],
+        correct: ["من شر", "من فوقهم"],
+        explanation: "Ikhfaa occurs when Noon Saakinah is followed by letters like 'Sheen', 'Fa'."
+      },
+      {
+        q: "Which rule applies when Noon Saakinah is followed by 'Meem'?",
+        type: "radio",
+        options: ["Idghaam with Ghunnah", "Ikhfaa", "Izhar"],
+        correct: ["Idghaam with Ghunnah"],
+        explanation: "When Noon is followed by Meem, Idghaam with Ghunnah is applied."
+      },
+      {
+        q: "Identify the type of Madd in the word ﴾الضالين﴿ in Surah Al-Fatihah:",
+        type: "radio",
+        options: ["Madd Tabee'i", "Madd Lazim", "Madd Munfasil"],
+        correct: ["Madd Lazim"],
+        explanation: "This is a natural Madd that extends due to Shaddah after letter with Madd."
+      },
+      {
+        q: "Which Ayah from Surah Al-Fatihah refers to Tawheed (Oneness of Allah)?",
+        type: "checkbox",
+        options: ["ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ", "إِيَّاكَ نَعْبُدُ", "مَـٰلِكِ يَوْمِ ٱلدِّينِ"],
+        correct: ["إِيَّاكَ نَعْبُدُ"],
+        explanation: "'You alone we worship' reflects belief in one God."
+      },
+      {
+        q: "What does 'Tajweed' literally mean?",
+        type: "radio",
+        options: ["To decorate", "To improve", "To recite"],
+        correct: ["To improve"],
+        explanation: "Tajweed means to make something better or to enhance."
+      },
+      {
+        q: "What are the letters of Qalqalah?",
+        type: "checkbox",
+        options: ["ق", "ط", "ب", "ك"],
+        correct: ["ق", "ط", "ب"],
+        explanation: "Letters of Qalqalah: ق ط ب ج د."
+      },
+      {
+        q: "Where is Ghunnah required?",
+        type: "checkbox",
+        options: ["When Noon or Meem is Mushaddad", "In Ikhfaa", "In Izhar"],
+        correct: ["When Noon or Meem is Mushaddad", "In Ikhfaa"],
+        explanation: "Ghunnah is nasal sound needed in Ikhfaa and when Noon/Meem has Shaddah."
+      },
+      {
+        q: "Which word from Surah Al-Fatihah contains Ikhfaa?",
+        type: "radio",
+        options: ["ٱهْدِنَا", "صِرَٰطَ", "الَّذِينَ"],
+        correct: ["ٱهْدِنَا"],
+        explanation: "In recitation, 'n' is followed by 's', so Ikhfaa applies."
+      },
+      {
+        q: "Choose the letters of Idghaam with Ghunnah:",
+        type: "checkbox",
+        options: ["ي", "ر", "م", "و"],
+        correct: ["ي", "م", "و"],
+        explanation: "These letters (ي ن م و) cause merging with Ghunnah."
+      }
+       //
+       ,
+       {
+  q: "Which Ayah in Surah Al-Fatihah mentions ‘Iyyaka na’budu wa iyyaka nasta’een’?",
+  type: "radio",
+  options: ["Ayah 1", "Ayah 3", "Ayah 5", "Ayah 7"],
+  correct: ["Ayah 5"],
+  explanation: "This verse means: You alone we worship and You alone we ask for help."
+},
+{
+  q: "In Surah Al-Fatihah, which word contains the letter ‘ض’ pronounced with heaviness?",
+  type: "radio",
+  options: ["صراط", "الرحمن", "الضالين", "مالك"],
+  correct: ["الضالين"],
+  explanation: "‘ض’ is a heavy letter, especially in ‘الضالين’."
+},
+{
+  q: "Which of the following Ayahs in Surah Al-Fatihah has Qalqalah letter if stopped upon?",
+  type: "radio",
+  options: ["Ayah 1", "Ayah 2", "Ayah 3", "Ayah 4"],
+  correct: ["Ayah 4"],
+  explanation: "Ayah 4 ends with ‘الدين’ – if stopped, the ‘د’ is pronounced with Qalqalah."
+},
+{
+  q: "Choose the examples of Ikhfaa from the following:",
+  type: "checkbox",
+  options: ["مِن شَرِّ", "مَنْ يَقُولُ", "إِنَّ اللَّهَ", "مِن بَعْدِ"],
+  correct: ["مِن شَرِّ", "مِن بَعْدِ"],
+  explanation: "Noon Sakin followed by Shīn and Bā produce Ikhfaa with nasal sound."
+},
+{
+  q: "What does 'Izhaar' mean in Tajweed?",
+  type: "radio",
+  options: ["Hiding sound", "Merging letters", "Clear pronunciation", "Echoing sound"],
+  correct: ["Clear pronunciation"],
+  explanation: "Izhaar literally means 'to make clear' – applies to throat letters."
+},
+{
+  q: "Which of these contain Idghaam with Ghunna?",
+  type: "checkbox",
+  options: ["مَنْ يَعْمَلْ", "مِن رَبِّهِ", "إِنَّ اللَّهَ", "غَفُورٌ رَحِيمٌ"],
+  correct: ["مَنْ يَعْمَلْ", "غَفُورٌ رَحِيمٌ"],
+  explanation: "Noon or Tanween merging into Yā or Rā with Ghunna."
+},
+{
+  q: "Which of these examples demonstrate Madd Munfasil?",
+  type: "checkbox",
+  options: ["إِنَّا أَعْطَيْنَاكَ", "فِي أَنْفُسِكُمْ", "يَا أَيُّهَا", "قَالُوا آمَنَّا"],
+  correct: ["يَا أَيُّهَا", "قَالُوا آمَنَّا"],
+  explanation: "Madd Munfasil occurs when Madd and Hamzah are split between two words."
+},
+{
+  q: "Select the examples of Madd Aarid (temporary Madd due to stop):",
+  type: "checkbox",
+  options: ["الْعَالَمِينَ", "الرَّحِيمِ", "يَسْتَهْزِئُونَ", "يَعْلَمُونَ"],
+  correct: ["الْعَالَمِينَ", "الرَّحِيمِ"],
+  explanation: "When you stop on these endings, a temporary Sukoon leads to Madd Aarid."
+},
+{
+  q: "In which example do we see Iqlab applied?",
+  type: "radio",
+  options: ["مِن بَعْدِ", "أَنْبِئْهُمْ", "إِنَّ اللَّهَ", "قُلْ هُوَ"],
+  correct: ["أَنْبِئْهُمْ"],
+  explanation: "Noon followed by Bā causes the Noon to change to Meem sound with Ghunna."
+},
+{
+  q: "Which example shows Qalqalah at the end of the word?",
+  type: "radio",
+  options: ["يَقْدِرُ", "خَلَقَ", "الْحَقُّ", "نَجْدَيْنِ"],
+  correct: ["الْحَقُّ"],
+  explanation: "When stopped, the Qalqalah letter ق bounces with echo."
+},
+{
+  q: "How many Ghunna letters are there?",
+  type: "radio",
+  options: ["2", "4", "6", "5"],
+  correct: ["2"],
+  explanation: "Only Meem (م) and Noon (ن) produce Ghunna sounds."
+},
+{
+  q: "Which of the following are NOT throat letters?",
+  type: "checkbox",
+  options: ["غ", "ح", "ص", "ع"],
+  correct: ["ص"],
+  explanation: "‘ص’ is not from the throat; it is from the tongue area."
+},
+{
+  q: "What is the ruling if Noon Saakin is followed by Meem (م)?",
+  type: "radio",
+  options: ["Ikhfaa", "Idghaam with Ghunna", "Iqlab", "Idghaam without Ghunna"],
+  correct: ["Ikhfaa"],
+  explanation: "Noon before Meem requires nasal concealment – Ikhfaa Shafawi."
+},
+{
+  q: "Which word in Surah Al-Fatihah has Ikhfaa when recited in flow?",
+  type: "radio",
+  options: ["الْعَالَمِينَ", "الصِّرَاطَ", "غَيْرِ", "مِنَ الْمَغْضُوبِ"],
+  correct: ["مِنَ الْمَغْضُوبِ"],
+  explanation: "Noon is followed by a letter of Ikhfaa – 'مِنَ الْ'."
+},
+{
+  q: "Which of the following are examples of Madd Lazim?",
+  type: "checkbox",
+  options: ["الضَّآلِّينَ", "آلٓمٓ", "الْحَقُّ", "النَّارِ"],
+  correct: ["الضَّآلِّينَ", "آلٓمٓ"],
+  explanation: "Madd Lazim occurs in these due to permanent Sukoon and letter structure."
+}
+
+       //
+    ];
+
+    let clickCount = 0;
+
+    function renderQuestions() {
+      const container = document.getElementById("questions");
+      questions.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "question";
+        div.innerHTML = `<h3>Q${index + 1}. ${q.q}</h3>`;
+
+        const inputs = q.options.map(opt => {
+          return `<label><input type="${q.type}" name="q${index}" value="${opt}"> ${opt}</label>`;
+        }).join("\n");
+
+        div.innerHTML += `<div class="answers">${inputs}</div>`;
+        div.innerHTML += `<button class="reveal"> ✨ Reveal the Answer 🧐 </button><div class="explanation">${q.explanation}</div>`;
+
+        container.appendChild(div);
+      });
+
+      document.querySelectorAll('.reveal').forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+          const exp = btn.nextElementSibling;
+          exp.style.display = 'block';
+          clickCount++;
+        });
+      });
+    }
+
+    document.getElementById("submitBtn").addEventListener("click", () => {
+      const resultDiv = document.getElementById("result");
+      const name = document.getElementById("studentName").value.trim();
+      if (!name) return alert("Please enter your name first.");
+
+      let score = 0;
+      let correctAnswers = [], wrongAnswers = [];
+
+      questions.forEach((q, i) => {
+        const userInputs = Array.from(document.querySelectorAll(`input[name='q${i}']:checked`)).map(input => input.value);
+        const isCorrect = JSON.stringify(userInputs.sort()) === JSON.stringify(q.correct.sort());
+        if (isCorrect) {
+          score++;
+          correctAnswers.push(`Q${i+1}`);
+        } else {
+          wrongAnswers.push(`Q${i+1}`);
+        }
+      });
+
+      resultDiv.innerHTML = `<h2>📊 Quiz Results</h2>
+        <p><strong>Student:</strong> ${name} 🔐 ${clickCount}</p>
+        <p><strong>Score:</strong> ${score} / ${questions.length}</p>
+        <p><strong>Correct:</strong> ${correctAnswers.join(", ")}</p>
+        <p><strong>Incorrect:</strong> ${wrongAnswers.join(", ")}</p>`;
+    });
+
+    renderQuestions();
+  </script>
+</body>
+</html>
