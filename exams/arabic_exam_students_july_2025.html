@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="iamshowkath@gmail.com">
+  <meta name="teacher" content="Moulana Saddam Hussain">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arabic Exam – Students – July 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f9;
+      padding: 20px;
+      color: #222;
+    }
+    h1 {
+      color: #174734;
+    }
+    .question {
+      background: #ffffff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-left: 5px solid #174734;
+      border-radius: 6px;
+    }
+    .answers label {
+      display: block;
+      margin: 5px 0;
+    }
+    button.reveal {
+      margin-top: 10px;
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      color: #856404;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .reveal:disabled {
+      background: #eee;
+      cursor: not-allowed;
+    }
+    .explanation {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background: #e2f0d9;
+      border-left: 4px solid #28a745;
+    }
+    #submitBtn {
+      background: #174734;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #result {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      border-left: 4px solid #17a2b8;
+    }
+  </style>
+</head>
+<body>
+  <h1>🕌 Arabic Tajweed Exam – July 2025</h1>
+  <p>Please enter your name before beginning the quiz:</p>
+  <input type="text" id="studentName" placeholder="Your Full Name" style="padding:8px;width:60%;margin-bottom:20px;">
+
+  <div id="questions"></div>
+
+  <button id="submitBtn">📝 Submit Quiz</button>
+  <div id="result"></div>
+
+  <script>
+    const questions = [
+      {
+        q: "Shaddah letter is read....",
+        type: "radio",
+        options: ["Single", "Double", "Triple"],
+        correct: ["Double"],
+        explanation: "A letter with Shaddah ( ّ ) is read with two beats — the first with Sukoon, second with Harakah."
+      },
+      {
+        q: "The letter Laam (ل) in 'اللَّه' is read light when the previous letter has Dhammah (Pesh):",
+        type: "radio",
+        options: ["Right", "Wrong"],
+        correct: ["Wrong"],
+        explanation: "The Laam in 'اللَّه' is heavy if the preceding letter has Fatha or Dhammah; it is light only if the previous vowel is Kasrah."
+      },
+      {
+        q: "The letter Raa (ر) in 'رَبِّ' will be read heavy (Tafkheem) because it contains Fatha (Zabar):",
+        type: "radio",
+        options: ["Right", "Wrong"],
+        correct: ["Right"],
+        explanation: "Raa is heavy when it has Fatha or Dhammah."
+      },
+      {
+        q: "The Noon Saakinah in أَنْعَمْتَ will be recited with the rule of:",
+        type: "radio",
+        options: ["Izhaar", "Ikhfa", "Iqlab"],
+        correct: ["Izhaar"],
+        explanation: "Noon Saakin followed by any of the throat letters (like 'ع' in أَنْعَمْتَ) is read with Izhaar (clear)."
+      },
+      {
+        q: "What type of Madd is applied in the word ﴾ٱلضَّآلِّينَ﴿ in Surah Al-Fātiḥah?",
+        type: "radio",
+        options: ["Madd Ṭabīʿī", "Madd Lāzim", "Madd Munfaṣil"],
+        correct: ["Madd Lāzim"],
+        explanation: "This is <strong>Madd Lāzim Kalimī Muthaqqal</strong>, because the <strong>Ḍād (ضّ)</strong> has a <strong>Shaddah (ّ)</strong> and is <strong>preceded by a Madd letter Alif (ٓ)</strong>. When reciting ﴾ٱلضَّآلِّينَ﴿, the Madd must be extended for <strong>6 counts</strong>, as agreed upon by Tajweed scholars."
+      },
+      {
+        q: "Which Ayah in Surah Al-Fatihah mentions ‘Iyyaka na’budu wa iyyaka nasta’een’:",
+        type: "radio",
+        options: ["Ayah 1", "Ayah 3", "Ayah 5", "Ayah 7"],
+        correct: ["Ayah 5"],
+        explanation: "This verse means: You alone we worship and You alone we ask for help."
+      },
+      {
+        q: "In Surah Al-Fatihah, which word contains the letter ‘Ḍād (ض)’ pronounced with heaviness?",
+        type: "radio",
+        options: ["ٱلرَّحْمَٰن", "ٱلرَّحِيمِ", "ٱلضَّآلِّينَ", "غَيْرِ"],
+        correct: ["ٱلضَّآلِّينَ"],
+        explanation: "The letter ‘Ḍād’ (ض) is only found in ‘ٱلضَّآلِّينَ’. Others may contain heavy letters like Rā (ر), but not Ḍād."
+      },
+      {
+        q: "What does 'Izhaar' mean in Tajweed?",
+        type: "radio",
+        options: ["Hiding sound", "Merging letters", "Clear pronunciation", "Echoing sound"],
+        correct: ["Clear pronunciation"],
+        explanation: "Izhaar literally means 'to make clear' – it applies when Noon Saakin or Tanween is followed by throat letters."
+      },
+      {
+        q: "Select the examples of Madd Aarid (temporary Madd due to stop):",
+        type: "checkbox",
+        options: ["الْعَالَمِينَ", "الرَّحِيمِ", "يَسْتَهْزِئُونَ", "يَعْلَمُونَ"],
+        correct: ["الْعَالَمِينَ", "الرَّحِيمِ"],
+        explanation: "When you stop on these endings, a temporary Sukoon leads to Madd Aarid. So correct answer is 'الْعَالَمِينَ', 'الرَّحِيمِ'."
+      },
+      {
+        q: "Which of the words following are examples of Madd Lazim?",
+        type: "checkbox",
+        options: ["ٱلضَّآلِّينَ", "آلٓمٓ", "ٱلْحَقُّ", "ٱلنَّارِ"],
+        correct: ["ٱلضَّآلِّينَ", "آلٓمٓ"],
+        explanation: "Madd Lazim occurs when a letter of Madd is followed by a permanent Sukoon (original Sukoon), so correct answer is 'ٱلضَّآلِّينَ', 'آلٓمٓ'."
+      }
+    ];
+
+    let clickCount = 0;
+
+    function renderQuestions() {
+      const container = document.getElementById("questions");
+      questions.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "question";
+        div.innerHTML = `<h3>Q${index + 1}. ${q.q}</h3>`;
+
+        const inputs = q.options.map(opt => {
+          return `<label><input type="${q.type}" name="q${index}" value="${opt}" onchange="enableReveal(${index})"> ${opt}</label>`;
+        }).join("\n");
+
+        div.innerHTML += `<div class="answers">${inputs}</div>`;
+        div.innerHTML += `<button class="reveal" id="reveal${index}" disabled> ✨ Reveal the Answer 🧐 </button><div class="explanation">${q.explanation}</div>`;
+
+        container.appendChild(div);
+      });
+
+      questions.forEach((_, i) => {
+        document.getElementById(`reveal${i}`).addEventListener('click', () => {
+          const exp = document.getElementById(`reveal${i}`).nextElementSibling;
+          exp.style.display = 'block';
+          clickCount++;
+
+          // Disable all inputs for that question after reveal
+          document.querySelectorAll(`input[name='q${i}']`).forEach(input => input.disabled = true);
+          document.getElementById(`reveal${i}`).disabled = true;
+        });
+      });
+    }
+
+    function enableReveal(index) {
+      document.getElementById(`reveal${index}`).disabled = false;
+    }
+
+    document.getElementById("submitBtn").addEventListener("click", () => {
+      const resultDiv = document.getElementById("result");
+      const name = document.getElementById("studentName").value.trim();
+      if (!name) return alert("Please enter your name first.");
+
+      let score = 0;
+      let correctAnswers = [], wrongAnswers = [];
+
+      questions.forEach((q, i) => {
+        const userInputs = Array.from(document.querySelectorAll(`input[name='q${i}']:checked`)).map(input => input.value);
+        const isCorrect = JSON.stringify(userInputs.sort()) === JSON.stringify(q.correct.sort());
+        if (isCorrect) {
+          score++;
+          correctAnswers.push(`Q${i + 1}`);
+        } else {
+          wrongAnswers.push(`Q${i + 1}`);
+        }
+      });
+
+      resultDiv.innerHTML = `<h2>📊 Quiz Results</h2>
+        <p><strong>Student:</strong> ${name} 🔐 ${clickCount} answer reveals used</p>
+        <p><strong>Score:</strong> ${score} / ${questions.length}</p>
+        <p><strong>Correct:</strong> ${correctAnswers.join(", ")}</p>
+        <p><strong>Incorrect:</strong> ${wrongAnswers.join(", ")}</p>`;
+    });
+
+    renderQuestions();
+  </script>
+</body>
+</html>
