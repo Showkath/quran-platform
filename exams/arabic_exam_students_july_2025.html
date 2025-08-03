@@ -68,15 +68,41 @@
 </head>
 <body>
   <h1>🕌 Arabic Tajweed Exam – July 2025</h1>
-  <p>Please enter your name before beginning the quiz:</p>
-  <input type="text" id="studentName" placeholder="Your Full Name" style="padding:8px;width:60%;margin-bottom:20px;">
+
+  <!-- Option Selection -->
+ 
+ <label for="examMethod"><strong>Select Your Exam Method:</strong></label>
+<select id="examMethod" onchange="handleMethodChange()" style="padding:8px; margin-left:10px;">
+  <option value="">-- Choose an option --</option>
+  <option value="form">📄 Google Form</option>
+  <option value="local">📝 On This Page</option>
+</select>
+
+  <hr>
+
+  <!-- Google Form Embed -->
+  <div id="googleForm" style="display:none; margin-top:20px;">
+    <h3>Google Form Quiz</h3>
+    <iframe src="https://forms.gle/8x9T6GGbFpHvETx57" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+
+  <!-- Local Quiz Interface -->
+  <div id="localQuiz" style="display:none; margin-top:20px;">
+    <p>Please enter your name before beginning the quiz:</p>
+    <input type="text" id="studentName" placeholder="Your Full Name" style="padding:8px;width:60%;margin-bottom:20px;">
 
   <div id="questions"></div>
 
   <button id="submitBtn">📝 Submit Quiz</button>
   <div id="result"></div>
-
+</div>
   <script>
+
+    function handleMethodChange() {
+  const method = document.getElementById('examMethod').value;
+  document.getElementById('googleForm').style.display = method === 'form' ? 'block' : 'none';
+  document.getElementById('localQuiz').style.display = method === 'local' ? 'block' : 'none';
+}
     const questions = [
       {
         q: "Shaddah letter is read....",
